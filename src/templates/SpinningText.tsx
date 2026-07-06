@@ -59,7 +59,7 @@ export const SpinningText: React.FC<SpinningTextProps> = ({
           color,
           fontFamily,
           fontWeight,
-          transform: `rotate(${rotation}deg)`,
+          rotate: `${rotation}deg`,
         }}
       >
         {text}

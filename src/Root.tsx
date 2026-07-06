@@ -28,7 +28,6 @@ import {
   spinningTextSchema,
 } from './templates/SpinningText';
 
-
 // Each template is registered twice: a 1920x1080 landscape version under its
 // plain id, and a 1080x1920 vertical version under "<id>-Vertical".
 export const RemotionRoot: React.FC = () => {

@@ -24,15 +24,11 @@ if (!['overlay', 'fullframe'].includes(mode ?? '') || !compositionId) {
   process.exit(1);
 }
 
-// --out-dir=<subfolder> puts renders in out/<subfolder>/ (e.g. one folder per episode).
-let outDir = 'out';
-const extraArgs = rawArgs.filter((arg) => {
-  if (arg.startsWith('--out-dir=')) {
-    outDir = path.join('out', arg.slice('--out-dir='.length));
-    return false;
-  }
-  return true;
-});
+const outDirArg = rawArgs.find((arg) => arg.startsWith('--out-dir='));
+const outDir = outDirArg
+  ? path.join('out', outDirArg.slice('--out-dir='.length).replace(/^out[/\\]/, ''))
+  : 'out';
+const extraArgs = rawArgs.filter((arg) => !arg.startsWith('--out-dir='));
 
 const timestamp = new Date()
   .toISOString()
