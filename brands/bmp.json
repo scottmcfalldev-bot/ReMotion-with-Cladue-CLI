@@ -1,9 +1,17 @@
 {
   "name": "Bad Mom Podcast",
+  "colors": {
+    "orange": "#ff6633",
+    "blue": "#0099cc",
+    "white": "#ffffff",
+    "black": "#000000"
+  },
   "primaryColor": "#ffffff",
-  "accentColor": "#f59e0b",
+  "accentColor": "#ff6633",
   "textColor": "#ffffff",
   "backgroundColor": "transparent",
-  "fontFamily": "-apple-system, BlinkMacSystemFont, \"Helvetica Neue\", Helvetica, Arial, sans-serif",
+  "fontFamily": "Raleway, Poppins, sans-serif",
+  "fontPrimary": "Raleway",
+  "fontSecondary": "Poppins",
   "fontWeight": 700
 }
