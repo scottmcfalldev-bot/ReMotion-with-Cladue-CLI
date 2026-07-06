@@ -5,3 +5,6 @@ export const VERTICAL = {width: 1080, height: 1920} as const;
 
 export const DEFAULT_FONT =
   '-apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, Arial, sans-serif';
+
+export const RALEWAY = 'Raleway, sans-serif';
+export const POPPINS = 'Poppins, sans-serif';
