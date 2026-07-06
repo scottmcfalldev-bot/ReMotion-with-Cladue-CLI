@@ -16,13 +16,23 @@ import {fileURLToPath} from 'node:url';
 
 const projectRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 
-const [mode, compositionId, ...extraArgs] = process.argv.slice(2);
+const [mode, compositionId, ...rawArgs] = process.argv.slice(2);
 
 if (!['overlay', 'fullframe'].includes(mode ?? '') || !compositionId) {
-  console.error('Usage: npm run overlay|fullframe -- <CompositionId> [extra remotion flags]');
-  console.error('Example: npm run overlay -- Counter');
+  console.error('Usage: npm run overlay|fullframe -- <CompositionId> [--out-dir=<subfolder>] [extra remotion flags]');
+  console.error('Example: npm run overlay -- Counter --out-dir="42_Jane Doe"');
   process.exit(1);
 }
+
+// --out-dir=<subfolder> puts renders in out/<subfolder>/ (e.g. one folder per episode).
+let outDir = 'out';
+const extraArgs = rawArgs.filter((arg) => {
+  if (arg.startsWith('--out-dir=')) {
+    outDir = path.join('out', arg.slice('--out-dir='.length));
+    return false;
+  }
+  return true;
+});
 
 const timestamp = new Date()
   .toISOString()
@@ -42,9 +52,9 @@ const modeArgs =
     : ['--codec=h264'];
 
 const extension = mode === 'overlay' ? 'mov' : 'mp4';
-const outFile = path.join('out', `${compositionId}_${mode}_${timestamp}.${extension}`);
+const outFile = path.join(outDir, `${compositionId}_${mode}_${timestamp}.${extension}`);
 
-mkdirSync(path.join(projectRoot, 'out'), {recursive: true});
+mkdirSync(path.join(projectRoot, outDir), {recursive: true});
 
 const remotionBin = path.join(projectRoot, 'node_modules', '.bin', 'remotion');
 const result = spawnSync(

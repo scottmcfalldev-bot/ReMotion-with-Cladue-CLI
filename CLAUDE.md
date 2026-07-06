@@ -46,10 +46,15 @@ npm run fullframe -- <CompositionId>
 
 # Extra remotion flags pass through, e.g. custom props:
 npm run overlay -- Counter --props='{"from":100,"to":0,"durationInSeconds":5}'
+
+# Render into a per-episode subfolder (out/42_Jane Doe/):
+npm run overlay -- Counter --out-dir="42_Jane Doe"
 ```
 
 Output filenames are `out/<CompositionId>_<mode>_<timestamp>.<ext>` — nothing
-gets overwritten. Both scripts are thin wrappers around
+gets overwritten. Per-episode renders go in `out/<number>_<guest name>/`,
+named after the transcript file (no "ep" prefix; anything after the guest
+name is dropped). Both scripts are thin wrappers around
 `scripts/render.mjs`, which adds the codec flags (overlay = `--codec=prores
 --prores-profile=4444 --pixel-format=yuva444p10le --image-format=png`).
 
