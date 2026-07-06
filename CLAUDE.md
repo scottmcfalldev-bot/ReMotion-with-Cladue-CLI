@@ -9,6 +9,8 @@ use its values for all render props instead of template defaults.
 **Matching rule:** compare each path segment of the transcript file (case-insensitive)
 against brand filenames (without `.json`). First match wins.
 Example: `/Pods/BMP/Episodes/26_...srt` → `brands/bmp.json`.
+If no match is found, ask the user which client the transcript is for before
+proceeding.
 
 Brand file fields: `name`, `primaryColor`, `accentColor`, `textColor`,
 `backgroundColor`, `fontFamily`, `fontWeight`.
