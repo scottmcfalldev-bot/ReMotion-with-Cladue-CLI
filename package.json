@@ -1,0 +1,29 @@
+{
+  "name": "broll-kit",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Reusable Remotion B-roll kit: animated overlays with alpha for podcast videos edited in DaVinci Resolve",
+  "scripts": {
+    "dev": "remotion studio",
+    "studio": "remotion studio",
+    "typecheck": "tsc --noEmit",
+    "overlay": "node scripts/render.mjs overlay",
+    "fullframe": "node scripts/render.mjs fullframe"
+  },
+  "dependencies": {
+    "@remotion/cli": "^4.0.485",
+    "@remotion/zod-types": "^4.0.485",
+    "react": "^19.2.7",
+    "react-dom": "^19.2.7",
+    "remotion": "^4.0.485",
+    "zod": "4.3.6"
+  },
+  "devDependencies": {
+    "@types/react": "^19.2.17",
+    "@types/react-dom": "^19.2.3",
+    "typescript": "^6.0.3"
+  },
+  "allowScripts": {
+    "esbuild@0.28.1": true
+  }
+}
