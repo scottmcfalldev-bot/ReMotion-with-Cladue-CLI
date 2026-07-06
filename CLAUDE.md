@@ -1,5 +1,18 @@
 # B-roll Kit (Remotion)
 
+## Brand Configs (`brands/`)
+
+Each client has a JSON file in `brands/` (e.g. `brands/bmp.json`). When
+producing an asset plan from a transcript, read the matching brand file and
+use its values for all render props instead of template defaults.
+
+**Matching rule:** compare each path segment of the transcript file (case-insensitive)
+against brand filenames (without `.json`). First match wins.
+Example: `/Pods/BMP/Episodes/26_...srt` → `brands/bmp.json`.
+
+Brand file fields: `name`, `primaryColor`, `accentColor`, `textColor`,
+`backgroundColor`, `fontFamily`, `fontWeight`.
+
 Reusable Remotion "B-roll kit" for quick one-off animated overlays for podcast
 videos edited in **DaVinci Resolve Studio 21** on macOS. The owner is not a
 hand-coder — Claude writes all code; the owner tweaks via natural language or

@@ -1,0 +1,9 @@
+{
+  "name": "Bad Mom Podcast",
+  "primaryColor": "#ffffff",
+  "accentColor": "#f59e0b",
+  "textColor": "#ffffff",
+  "backgroundColor": "transparent",
+  "fontFamily": "-apple-system, BlinkMacSystemFont, \"Helvetica Neue\", Helvetica, Arial, sans-serif",
+  "fontWeight": 700
+}
