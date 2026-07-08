@@ -82,8 +82,12 @@ name is dropped). Both scripts are thin wrappers around
 | `ProgressBar` | fromPercent, toPercent, barColor, trackColor, height, borderRadius, showLabel, backgroundColor |
 | `BigStatReveal` | value, label, color, accentColor, backgroundColor |
 | `LowerThird` | name, title, accentColor, textColor, backgroundColor |
+| `StatementCard` | line1, line2, textColor, accentColor, backgroundColor, fontFamily, fontWeight, fontSizePercent |
 
-Append `-Vertical` to any id for the 9:16 variant.
+Append `-Vertical` to any id for the 9:16 variant. `StatementCard` is a
+full-frame statement/quote overlay (two-line hierarchy, line2 pops in
+bold/accented) for episode-intro hooks — pass an empty `line1` or `line2` to
+use it as a single punchy line.
 
 ## Adding a new template
 

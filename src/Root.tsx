@@ -27,6 +27,10 @@ import {
   SpinningText,
   spinningTextSchema,
 } from './templates/SpinningText';
+import {
+  StatementCard,
+  statementCardSchema,
+} from './templates/StatementCard';
 
 // Each template is registered twice: a 1920x1080 landscape version under its
 // plain id, and a 1080x1920 vertical version under "<id>-Vertical".
@@ -134,6 +138,24 @@ export const RemotionRoot: React.FC = () => {
           fps={FPS}
           {...LANDSCAPE}
         />
+        <Composition
+          id="StatementCard"
+          component={StatementCard}
+          schema={statementCardSchema}
+          defaultProps={{
+            line1: 'WE ARE LIVING IN A',
+            line2: 'VERY WEIRD DYSTOPIAN FUTURE',
+            textColor: '#ffffff',
+            accentColor: '#f59e0b',
+            backgroundColor: 'transparent',
+            fontFamily: '-apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, Arial, sans-serif',
+            fontWeight: 800,
+            fontSizePercent: 100,
+          }}
+          durationInFrames={4 * FPS}
+          fps={FPS}
+          {...LANDSCAPE}
+        />
       </Folder>
       <Folder name="Vertical">
         <Composition
@@ -233,6 +255,24 @@ export const RemotionRoot: React.FC = () => {
             backgroundColor: 'transparent',
           }}
           durationInFrames={6 * FPS}
+          fps={FPS}
+          {...VERTICAL}
+        />
+        <Composition
+          id="StatementCard-Vertical"
+          component={StatementCard}
+          schema={statementCardSchema}
+          defaultProps={{
+            line1: 'WE ARE LIVING IN A',
+            line2: 'VERY WEIRD DYSTOPIAN FUTURE',
+            textColor: '#ffffff',
+            accentColor: '#f59e0b',
+            backgroundColor: 'transparent',
+            fontFamily: '-apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, Arial, sans-serif',
+            fontWeight: 800,
+            fontSizePercent: 100,
+          }}
+          durationInFrames={4 * FPS}
           fps={FPS}
           {...VERTICAL}
         />
